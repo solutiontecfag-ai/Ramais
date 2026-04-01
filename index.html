@@ -4,14 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ramais — Consulta</title>
- 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap%22 rel="stylesheet"/>
- 
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+
 <style>
-/* ==================== ESTILOS ==================== */
- 
+/* ======== ESTILOS GERAIS ======== */
+
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
- 
+
 :root{
   --bg:#0d1117;
   --surface:#161b22;
@@ -23,13 +23,13 @@
   --green:#3fb950;
   --radius:10px;
 }
- 
+
 body{
   font-family:'Outfit',sans-serif;
   background:var(--bg);
   color:var(--text);
 }
- 
+
 /* HEADER */
 .header{
   background:var(--surface);
@@ -41,17 +41,16 @@ body{
 .brand-pill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;}
 .pill-t{background:rgba(230,57,70,0.15);color:#e63946;}
 .pill-v{background:rgba(33,150,243,0.15);color:#2196f3;}
- 
 .header-title{font-size:15px;font-weight:600;}
 .header-sub{font-size:12px;color:var(--muted);}
 .live-badge{display:flex;align-items:center;gap:6px;color:var(--green);}
 .live-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
- 
+
 @keyframes pulse{
   0%,100%{opacity:1;transform:scale(1);}
   50%{opacity:.5;transform:scale(.85);}
 }
- 
+
 /* SEARCH */
 .search-section{
   background:var(--surface);
@@ -73,12 +72,12 @@ body{
 .filter-btn.active-a{background:rgba(244,197,66,.12);color:#f4c542;}
 .filter-btn.active-t{background:rgba(230,57,70,.12);color:#e63946;}
 .filter-btn.active-v{background:rgba(33,150,243,.12);color:#2196f3;}
- 
+
 .stats-row{
   padding:10px 40px;border-bottom:1px solid var(--border);
   display:flex;gap:24px;font-size:12px;color:var(--muted);
 }
- 
+
 .content{padding:28px 40px;}
 .dept-block{margin-bottom:28px;}
 .dept-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
@@ -88,13 +87,13 @@ body{
 .tag-t{background:rgba(230,57,70,.1);color:#e63946;}
 .tag-v{background:rgba(33,150,243,.1);color:#2196f3;}
 .tag-o{background:rgba(255,152,0,.1);color:#ff9800;}
- 
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
   gap:10px;
 }
- 
+
 .card{
   background:var(--surface);
   border:1px solid var(--border);
@@ -102,68 +101,80 @@ body{
 }
 .card:hover{border-color:var(--border2);}
 .card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+
 .avatar{
   width:38px;height:38px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-weight:700;color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:white;font-size:14px;
 }
+
+.avatar-img{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
 .card-name{font-size:14px;font-weight:600;}
 .card-email{font-size:11px;color:var(--dim);}
 .ramal-label{font-size:10px;text-transform:uppercase;color:var(--dim);}
 .ramal-display{
   font-family:'JetBrains Mono';font-size:20px;font-weight:600;letter-spacing:2px;
 }
- 
+
 .empty{text-align:center;padding:80px 20px;color:var(--dim);}
 footer{text-align:center;padding:20px;font-size:12px;color:var(--dim);border-top:1px solid var(--border);}
 </style>
 </head>
 <body>
- 
+
 <header class="header">
-<div class="header-brand">
-<div class="brand-logos">
-<span class="brand-pill pill-t">TECFAG</span>
-<span class="brand-pill pill-v">VALEM</span>
-</div>
-<div>
-<div class="header-title">Lista de Ramais</div>
-<div class="header-sub">Diretório interno • somente consulta</div>
-</div>
-</div>
-<div class="live-badge"><span class="live-dot"></span> Ao vivo</div>
+  <div class="header-brand">
+    <div class="brand-logos">
+      <span class="brand-pill pill-t">TECFAG</span>
+      <span class="brand-pill pill-v">VALEM</span>
+    </div>
+    <div>
+      <div class="header-title">Lista de Ramais</div>
+      <div class="header-sub">Diretório interno • somente consulta</div>
+    </div>
+  </div>
+  <div class="live-badge"><span class="live-dot"></span> Ao vivo</div>
 </header>
- 
+
 <div class="search-section">
-<div class="search-wrap">
-<svg class="search-icon" viewBox="0 0 24 24" stroke-width="2">
-<circle cx="11" cy="11" r="8"/>
-<path d="m21 21-4.35-4.35"/>
-</svg>
-<input id="searchInput" placeholder="Buscar nome, ramal, e-mail..." oninput="render()"/>
-</div>
- 
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input id="searchInput" placeholder="Buscar nome, ramal, e-mail..." oninput="render()"/>
+  </div>
+
   <div class="filter-group">
-<button class="filter-btn active-a" onclick="setEmp(this,'')">Todos</button>
-<button class="filter-btn" onclick="setEmp(this,'TECFAG')">Tecfag</button>
-<button class="filter-btn" onclick="setEmp(this,'VALEM')">Valem</button>
-</div>
- 
+    <button class="filter-btn active-a" onclick="setEmp(this,'')">Todos</button>
+    <button class="filter-btn" onclick="setEmp(this,'TECFAG')">Tecfag</button>
+    <button class="filter-btn" onclick="setEmp(this,'VALEM')">Valem</button>
+  </div>
+
   <select id="filterDept" onchange="render()" style="padding:8px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--muted);">
-<option value="">Todos os depto.</option>
-</select>
+    <option value="">Todos os depto.</option>
+  </select>
 </div>
- 
+
 <div id="statsRow" class="stats-row"></div>
 <div id="content" class="content"></div>
+
 <footer>Tecfag Group & Valem — Ramais internos</footer>
- 
+
 <script>
 /* ======================================================
-      CORES —  GARANTIR QUE NUNCA SE REPITAM
+        CORES — sem repetição + Marketing fixo
 ====================================================== */
- 
-const CORES_USADAS = {}; // dept → color
- 
+
+const CORES_USADAS = {};
 const CORES_DISPONIVEIS = [
   "#ef4444","#f97316","#f59e0b","#eab308","#84cc16","#22c55e","#10b981",
   "#14b8a6","#06b6d4","#0ea5e9","#3b82f6","#6366f1","#8b5cf6","#d946ef",
@@ -172,146 +183,156 @@ const CORES_DISPONIVEIS = [
   "#ff69b4","#db7093","#ff4500","#ff6347","#ffa500","#adff2f","#7fff00",
   "#40e0d0","#6495ed","#00bfff","#00a6ff"
 ];
- 
+
 function getDeptColor(dept){
   const d = dept.toLowerCase();
- 
-  // marketing sempre fixo
   if(d==="marketing"){
     CORES_USADAS[dept] = "#a855f7";
     return "#a855f7";
   }
- 
-  // já tem cor?
   if(CORES_USADAS[dept]) return CORES_USADAS[dept];
- 
-  // coletar cores já usadas
   const usadas = new Set(Object.values(CORES_USADAS));
- 
-  // pegar primeira cor livre
-  let livre = CORES_DISPONIVEIS.find(c => !usadas.has(c));
- 
-  // se acabar cores, gerar uma aleatória que não exista ainda
+  let livre = CORES_DISPONIVEIS.find(c=>!usadas.has(c));
   if(!livre){
-    do{
-      livre = "#" + Math.floor(Math.random()*16777215).toString(16);
-    } while(usadas.has(livre));
+    do{ livre="#"+Math.floor(Math.random()*16777215).toString(16); }
+    while(usadas.has(livre));
   }
- 
   CORES_USADAS[dept] = livre;
   return livre;
 }
- 
+
 /* ======================================================
-                    BUSCAR PLANILHA
+       EXTRATOR DE IMAGEM DO EMBED DO IMGUR
 ====================================================== */
- 
+function extrairImagem(embed){
+  if(!embed) return "";
+
+  // caso seja embed completo do Imgur → extrai data-id
+  if(embed.includes("imgur-embed-pub")){
+    const m = embed.match(/data-id="([^"]+)"/);
+    if(m) return `https://i.imgur.com/${m[1]}.jpg`;
+  }
+
+  // caso seja link direto
+  if(embed.startsWith("http")) return embed.trim();
+
+  return "";
+}
+
+/* ======================================================
+                BUSCAR PLANILHA
+====================================================== */
+
 async function carregarRamais(){
-  const base = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZEbyJ-ZwmXHsuP05HOhPAXbLLu5Utjr36e60r22PG-VLBSJb2JCsEF9-beUZfHAKKQRQkJzpGX34R/pub?output=csv%22;
-  const url  = base + "&_=" + Date.now();
- 
-  const res  = await fetch(url,{cache:"no-store"});
-  const csv  = await res.text();
- 
-  const linhas = csv.trim().split("\n").map(l=>l.split(","));
+  const base="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZEbyJ-ZwmXHsuP05HOhPAXbLLu5Utjr36e60r22PG-VLBSJb2JCsEF9-beUZfHAKKQRQkJzpGX34R/pub?output=csv";
+  const url=base+"&_="+Date.now();
+  const resp=await fetch(url,{cache:"no-store"});
+  const txt=await resp.text();
+  const linhas=txt.trim().split("\n").map(l=>l.split(","));
   linhas.shift();
- 
-  return linhas.map(c => ({
-    id:c[0], empresa:c[1], dept:c[2],
-    nome:c[3], ramal:c[4], email:c[5]||""
+
+  return linhas.map(c=>({
+    id:c[0],
+    empresa:c[1],
+    dept:c[2],
+    nome:c[3],
+    ramal:c[4],
+    email:c[5]||"",
+    foto:extrairImagem(c[6]||"")
   }));
 }
- 
+
 /* ======================================================
-                  FILTRO E RENDERIZAÇÃO
+            FILTRO E RENDERIZAÇÃO
 ====================================================== */
- 
-let ramais = [];
-let empFilter = "";
- 
-function setEmp(btn, emp){
-  empFilter = emp;
+
+let ramais=[];
+let empFilter="";
+
+function setEmp(btn,emp){
+  empFilter=emp;
   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active-a","active-t","active-v"));
   if(emp==="")btn.classList.add("active-a");
   if(emp==="TECFAG")btn.classList.add("active-t");
   if(emp==="VALEM")btn.classList.add("active-v");
   render();
 }
- 
+
 function initials(n){
   return n.split(" ").slice(0,2).map(w=>w[0]).join("").toUpperCase();
 }
- 
+
 function render(){
-  const q = document.getElementById("searchInput").value.toLowerCase();
-  const deptSel = document.getElementById("filterDept").value;
- 
-  const filtrados = ramais.filter(r =>
-    (!empFilter || r.empresa===empFilter) &&
-    (!deptSel || r.dept===deptSel) &&
-    (!q || r.nome.toLowerCase().includes(q) || r.ramal.includes(q) || r.email.toLowerCase().includes(q))
+  const q=document.getElementById("searchInput").value.toLowerCase();
+  const deptSel=document.getElementById("filterDept").value;
+
+  const filt=ramais.filter(r=>
+    (!empFilter||r.empresa===empFilter)&&
+    (!deptSel||r.dept===deptSel)&&
+    (!q||r.nome.toLowerCase().includes(q)||r.ramal.includes(q)||r.email.toLowerCase().includes(q))
   );
- 
-  document.getElementById("statsRow").innerHTML =
-    `<span class="stat"><strong>${filtrados.length}</strong> ramais</span>` +
-    `<span class="stat"><strong>${new Set(filtrados.map(r=>r.dept)).size}</strong> departamentos</span>`;
- 
-  const lstDepts = [...new Set(ramais.filter(r=>!empFilter || r.empresa===empFilter).map(r=>r.dept))].sort();
- 
-  document.getElementById("filterDept").innerHTML =
-    `<option value="">Todos os depto.</option>` +
-    lstDepts.map(d=>`<option value="${d}" ${deptSel===d?'selected':''}>${d}</option>`).join("");
- 
-  if(!filtrados.length){
-    document.getElementById("content").innerHTML =
-      `<div class="empty">Nenhum resultado encontrado.</div>`;
+
+  document.getElementById("statsRow").innerHTML=
+    `<span class="stat"><strong>${filt.length}</strong> ramais</span>
+     <span class="stat"><strong>${new Set(filt.map(r=>r.dept)).size}</strong> departamentos</span>`;
+
+  const allDepts=[...new Set(ramais.filter(r=>!empFilter||r.empresa===empFilter).map(r=>r.dept))].sort();
+  document.getElementById("filterDept").innerHTML=
+    `<option value="">Todos os depto.</option>`+
+    allDepts.map(d=>`<option value="${d}" ${deptSel===d?"selected":""}>${d}</option>`).join("");
+
+  if(!filt.length){
+    document.getElementById("content").innerHTML=`<div class="empty">Nenhum resultado encontrado.</div>`;
     return;
   }
- 
-  const grupos = {};
-  filtrados.forEach(r=>{
-    const chave = r.empresa+"|||"+r.dept;
-    (grupos[chave] = grupos[chave] || []).push(r);
+
+  const grupos={};
+  filt.forEach(r=>{
+    const k=r.empresa+"|||"+r.dept;
+    (grupos[k]=grupos[k]||[]).push(r);
   });
- 
+
   document.getElementById("content").innerHTML =
-    Object.entries(grupos).map(([key,list])=>{
-      const [emp, dept] = key.split("|||");
-      const cor = getDeptColor(dept);
-      const tag = emp==="TECFAG" ? "tag-t" : emp==="VALEM" ? "tag-v" : "tag-o";
- 
+    Object.entries(grupos).map(([k,list])=>{
+      const [emp,dept]=k.split("|||");
+      const cor=getDeptColor(dept);
+      const tag=emp==="TECFAG"?"tag-t":emp==="VALEM"?"tag-v":"tag-o";
+
       return `
-<div class="dept-block">
-<div class="dept-label">
-<div class="dept-stripe" style="background:${cor}"></div>
-<span class="dept-text">${dept}</span>
-<span class="dept-empresa ${tag}">${emp}</span>
-<span class="dept-n">${list.length}</span>
-</div>
-<div class="grid">
-            ${list.map(r=>`
-<div class="card">
-<div class="card-top">
-<div class="avatar" style="background:${cor}">${initials(r.nome)}</div>
-<div>
-<div class="card-name">${r.nome}</div>
-                    ${r.email?`<div class="card-email">${r.email}</div>`:""}
-</div>
-</div>
-<div class="ramal-label">Ramal</div>
-<div class="ramal-display" style="color:${cor}">${r.ramal}</div>
-</div>
-            `).join("")}
-</div>
-</div>
-      `;
+      <div class="dept-block">
+        <div class="dept-label">
+          <div class="dept-stripe" style="background:${cor}"></div>
+          <span class="dept-text">${dept}</span>
+          <span class="dept-empresa ${tag}">${emp}</span>
+          <span class="dept-n">${list.length}</span>
+        </div>
+
+        <div class="grid">
+          ${list.map(r=>`
+            <div class="card">
+              <div class="card-top">
+                ${
+                  r.foto
+                  ? `<img src="${r.foto}" class="avatar-img">`
+                  : `<div class="avatar" style="background:${cor}">${initials(r.nome)}</div>`
+                }
+                <div>
+                  <div class="card-name">${r.nome}</div>
+                  ${r.email?`<div class="card-email">${r.email}</div>`:""}
+                </div>
+              </div>
+
+              <div class="ramal-label">Ramal</div>
+              <div class="ramal-display" style="color:${cor}">${r.ramal}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>`;
     }).join("");
 }
- 
-carregarRamais().then(d=>{
-  ramais=d;
-  render();
-});
+
+carregarRamais().then(d=>{ ramais=d; render(); });
 </script>
+
 </body>
 </html>
